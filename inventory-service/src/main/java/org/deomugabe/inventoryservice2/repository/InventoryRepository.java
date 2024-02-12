@@ -1,10 +1,9 @@
-package org.deomugabe.inventoryservice.repository;
+package org.deomugabe.inventoryservice2.repository;
 
-import org.deomugabe.inventoryservice.model.Inventory;
+import org.deomugabe.inventoryservice2.model.Inventory;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface InventoryRepository extends JpaRepository<Inventory, Long> {
 

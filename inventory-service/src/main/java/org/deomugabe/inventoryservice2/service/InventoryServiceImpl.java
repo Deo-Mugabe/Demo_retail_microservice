@@ -1,7 +1,7 @@
-package org.deomugabe.inventoryservice.service;
+package org.deomugabe.inventoryservice2.service;
 
-import org.deomugabe.inventoryservice.dto.InventoryResponse;
-import org.deomugabe.inventoryservice.repository.InventoryRepository;
+import org.deomugabe.inventoryservice2.dto.InventoryResponse;
+import org.deomugabe.inventoryservice2.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

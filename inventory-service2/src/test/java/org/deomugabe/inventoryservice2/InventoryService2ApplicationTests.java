@@ -1,10 +1,10 @@
-package org.deomugabe.inventoryservice;
+package org.deomugabe.inventoryservice2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class InventoryServiceApplicationTests {
+class InventoryService2ApplicationTests {
 
 	@Test
 	void contextLoads() {

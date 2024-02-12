@@ -1,4 +1,4 @@
-package org.deomugabe.inventoryservice.model;
+package org.deomugabe.inventoryservice2.model;
 
 
 import jakarta.persistence.Entity;

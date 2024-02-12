@@ -1,9 +1,8 @@
-package org.deomugabe.inventoryservice.controller;
+package org.deomugabe.inventoryservice2.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.deomugabe.inventoryservice.dto.InventoryResponse;
-import org.deomugabe.inventoryservice.service.InventoryService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.deomugabe.inventoryservice2.dto.InventoryResponse;
+import org.deomugabe.inventoryservice2.service.InventoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,17 +1,19 @@
-package org.deomugabe.inventoryservice;
+package org.deomugabe.inventoryservice2;
 
-import org.deomugabe.inventoryservice.model.Inventory;
-import org.deomugabe.inventoryservice.repository.InventoryRepository;
+import org.deomugabe.inventoryservice2.model.Inventory;
+import org.deomugabe.inventoryservice2.repository.InventoryRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class InventoryServiceApplication {
+@EnableDiscoveryClient
+public class InventoryService2Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(InventoryServiceApplication.class, args);
+		SpringApplication.run(InventoryService2Application.class, args);
 	}
 
 	@Bean

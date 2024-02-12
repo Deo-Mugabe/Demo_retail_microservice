@@ -1,4 +1,4 @@
-package org.deomugabe.inventoryservice.dto;
+package org.deomugabe.inventoryservice2.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
