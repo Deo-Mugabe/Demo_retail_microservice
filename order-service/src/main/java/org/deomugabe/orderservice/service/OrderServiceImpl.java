@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.deomugabe.orderservice.dto.InventoryResponse;
 import org.deomugabe.orderservice.dto.OrderLineItemsDto;
 import org.deomugabe.orderservice.dto.OrderRequest;
+import org.deomugabe.orderservice.dto.OrderResponse;
 import org.deomugabe.orderservice.model.Order;
 import org.deomugabe.orderservice.model.OrderLineItems;
 import org.deomugabe.orderservice.repository.OrderRepository;
@@ -58,7 +59,15 @@ public class OrderServiceImpl implements OrderService{
 
     }
 
-       private OrderLineItems mapTo(OrderLineItemsDto orderLineItemsDto) {
+    @Override
+    public List<OrderResponse> getOrders() {
+        return orderRepository.findAll()
+                .stream()
+                .map(OrderResponse::from)
+                .toList();
+    }
+
+    private OrderLineItems mapTo(OrderLineItemsDto orderLineItemsDto) {
         OrderLineItems orderLineItems = new OrderLineItems();
         orderLineItems.setSkuCode(orderLineItemsDto.getSkuCode());
         orderLineItems.setPrice(orderLineItemsDto.getPrice());
