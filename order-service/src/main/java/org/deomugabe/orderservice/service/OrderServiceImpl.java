@@ -5,10 +5,11 @@ import org.deomugabe.orderservice.dto.InventoryResponse;
 import org.deomugabe.orderservice.dto.OrderLineItemsDto;
 import org.deomugabe.orderservice.dto.OrderRequest;
 import org.deomugabe.orderservice.dto.OrderResponse;
+import org.deomugabe.orderservice.event.OrderPlacedEvent;
 import org.deomugabe.orderservice.model.Order;
 import org.deomugabe.orderservice.model.OrderLineItems;
 import org.deomugabe.orderservice.repository.OrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -25,6 +26,7 @@ public class OrderServiceImpl implements OrderService{
 
     private final OrderRepository orderRepository;
     private final WebClient webClient;
+    private final KafkaTemplate<String, OrderPlacedEvent> kafkaTemplate;
     @Override
     public void createOrder(OrderRequest orderRequest) {
         Order order = new Order();
@@ -53,6 +55,7 @@ public class OrderServiceImpl implements OrderService{
 
        if(allProductsInStock){
            orderRepository.save(order);
+           kafkaTemplate.send("notificationTopic", new OrderPlacedEvent(order.getOrderNumber()));
        }else {
            throw new IllegalArgumentException("Product is out of stock");
        }
